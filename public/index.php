@@ -1,11 +1,16 @@
 <head>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<div class="flex flex-col h-screen">
+    
 <?php
 // /bikestores/public/index.php
-ob_start();
+
 
 require '../vendor/autoload.php';
+require_once("../helpers/PdfGenerator.php");
+require_once ("../helpers/View.php");
+
 // Incluir configuración y archivos comunes
 require_once '../config/config.php';
 // Obtener la URL solicitada
@@ -29,6 +34,12 @@ switch ($page) {
         if($action == "delete") $controller->delete();
         if($action == "reporte") $controller->report();
         break;
+    case "auth":
+        require_once '../controllers/AuthController.php';
+        $controller = new AuthController($pdo);
+        if($action == "login") $controller->loginForm();
+
+        break;
     default:
         echo "saludos";
         break;
@@ -37,3 +48,4 @@ if (!str_contains($action,"report")) require_once("../layout/footer.php");
 
 // Incluir el pie de página
 ?>
+</div>

@@ -1,6 +1,5 @@
 
 <?php
-    require_once '../config/config.php';
 
     class Offices {
         private $pdo;

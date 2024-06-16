@@ -22,7 +22,7 @@
                     <td><?php echo $oficina["officeCode"] ?></td>
                     <td><?php echo $oficina["city"] ?></td>
                     <td><?php echo $oficina["phone"] ?></td>
-                    <td><a href="index.php?page=office&action=delete&id=<?php echo $oficina["officeCode"] ?>">Eliminar</a></td>
+                    <td><a href="/index.php/office/action/delete?id=<?php echo $oficina["officeCode"] ?>">Eliminar</a></td>
                     <td>Actualizar</td>
                 </tr>
     <?php endforeach; ?>
