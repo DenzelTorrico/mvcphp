@@ -4,15 +4,14 @@
 <div class="flex flex-col h-screen">
     
 <?php
+use Controllers\AuthController;
+use Controllers\OfficesController;
+use Config\Config;
 // /bikestores/public/index.php
-
-
 require '../vendor/autoload.php';
-require_once("../helpers/PdfGenerator.php");
-require_once ("../helpers/View.php");
-
+$config = Config::getInstance();
+$pdo = $config->getConnection();
 // Incluir configuración y archivos comunes
-require_once '../config/config.php';
 // Obtener la URL solicitada
 $request = trim($_SERVER['REQUEST_URI'], '/');
 // Eliminar la parte inicial de la URL que no nos interesa
@@ -27,7 +26,6 @@ $action = isset($urlComponents[2]) ? $urlComponents[2] : 'index';
 if (!str_contains($action,"report")) require_once("../layout/header.php");
 switch ($page) {
     case "office":
-        require_once '../controllers/OfficesController.php';
         $controller = new OfficesController($pdo);
         if($action == "index") $controller->index();
         if($action == "create") $controller->create();
@@ -35,7 +33,6 @@ switch ($page) {
         if($action == "reporte") $controller->report();
         break;
     case "auth":
-        require_once '../controllers/AuthController.php';
         $controller = new AuthController($pdo);
         if($action == "login") $controller->loginForm();
 

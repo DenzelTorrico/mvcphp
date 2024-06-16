@@ -1,20 +1,23 @@
 <?php
-    require_once("../model/Offices.php");
+namespace Controllers;
+use Helpers\PdfGenerator;
+use Helpers\View;
+use Model\Offices;
     class OfficesController {
         private $officesModel;
         public function __construct($pdo) {
                 $this->officesModel = new Offices($pdo);
         }
         public function principal(){
-            require_once("../views/index.php"); 
+            View::view("index"); 
         }
         public function index(){
             $offices = $this->officesModel->index();
-            require_once("../views/offices/offices.php");
+            View::view("offices.offices",["offices"=>$offices]);
         }
         public function create(){
             $office = $this->officesModel;
-            require_once("../views/offices/create.php");
+            View::view("offices.create",["office"=>$office]);
         }
         public function delete(){
             $id = $_GET["id"];
@@ -25,8 +28,7 @@
     
             // Incluir el archivo que genera el HTML
             $reporte = $this->officesModel->index();
-            $path = "../views/offices/reporte.php";
-            PdfGenerator::generateFromView($path,["reporte"=>$reporte]);
+            PdfGenerator::generateFromView("offices.reporte",["reporte"=>$reporte]);
         }
     }
 

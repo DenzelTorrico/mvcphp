@@ -1,12 +1,14 @@
 <?php
-
+namespace Helpers;
         class View {
 
-            public static function view($name){
+            public static function view($name,$data = []){
                 $path = str_replace(".","/",$name);
                 $folder = "../views/".$path.".php";
+                extract($data);
                 require_once($folder);
-            }
         }
+    
+    }
 
 

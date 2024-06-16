@@ -1,7 +1,13 @@
 <?php
+namespace Helpers;
 use Dompdf\Dompdf;
 
 class PdfGenerator {
+    protected static function PathView($name){
+        $path = str_replace(".","/",$name);
+        $url = "../views/".$path.".php";
+        return $url;
+    }
     public static function generateFromView($viewPath, $data = [], $outputFilename = 'documento.pdf', $inline = true) {
         // Extraer variables del array $data para que puedan ser usadas en el archivo de vista
         extract($data);
@@ -10,7 +16,7 @@ class PdfGenerator {
         ob_start();
         
         // Incluir el archivo de vista
-        include($viewPath);
+        include(self::PathView($viewPath));
         
         // Obtener el contenido del búfer y limpiarlo
         $html = ob_get_clean();
@@ -34,5 +40,6 @@ class PdfGenerator {
         // Detener el script para asegurarte de que no se ejecute código adicional
         exit(0);
     }
+   
 }
 ?>

@@ -1,6 +1,6 @@
-
 <?php
-
+    namespace Model;
+    use PDO;
     class Offices {
         private $pdo;
 
@@ -22,5 +22,3 @@
             return $stmt->execute([$id]);;
         }
     }
-
-?>

@@ -1,5 +1,6 @@
 <?php
-
+namespace Controllers;
+use Helpers\View;
     class AuthController {
             private $config;
             public function __construct($config){

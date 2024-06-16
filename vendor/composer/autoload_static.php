@@ -14,7 +14,12 @@ class ComposerStaticInitbb3c75de7514198c5cdd1fc47f7424a1
         ),
         'M' => 
         array (
+            'Model\\' => 6,
             'Masterminds\\' => 12,
+        ),
+        'H' => 
+        array (
+            'Helpers\\' => 8,
         ),
         'F' => 
         array (
@@ -23,6 +28,11 @@ class ComposerStaticInitbb3c75de7514198c5cdd1fc47f7424a1
         'D' => 
         array (
             'Dompdf\\' => 7,
+        ),
+        'C' => 
+        array (
+            'Controllers\\' => 12,
+            'Config\\' => 7,
         ),
     );
 
@@ -35,9 +45,17 @@ class ComposerStaticInitbb3c75de7514198c5cdd1fc47f7424a1
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
+        'Model\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Model',
+        ),
         'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
+        ),
+        'Helpers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Helpers',
         ),
         'FontLib\\' => 
         array (
@@ -46,6 +64,14 @@ class ComposerStaticInitbb3c75de7514198c5cdd1fc47f7424a1
         'Dompdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Controllers',
+        ),
+        'Config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Config',
         ),
     );
 
