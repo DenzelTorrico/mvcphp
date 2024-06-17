@@ -1,12 +1,15 @@
 <?php
 namespace Controllers;
+use Config\Config;
 use Helpers\PdfGenerator;
 use Helpers\View;
 use Model\Offices;
     class OfficesController {
         private $officesModel;
-        public function __construct($pdo) {
-                $this->officesModel = new Offices($pdo);
+        public function __construct() {
+            $config = Config::getInstance();
+            $pdo = $config->getConnection();
+            $this->officesModel = new Offices($pdo);
         }
         public function principal(){
             View::view("index"); 
