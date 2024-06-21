@@ -1,13 +1,15 @@
 {
     "require": {
-        "dompdf/dompdf": "^3.0"
+        "dompdf/dompdf": "^3.0",
+        "symfony/console": "^7.1"
     },
     "autoload": {
         "psr-4": {
             "Model\\": "Model/",
             "Controllers\\": "Controllers/",
             "Helpers\\": "Helpers/",
-            "Config\\": "Config/"
+            "Config\\": "Config/",
+            "Console\\":"Console/"
         }
     }
 }

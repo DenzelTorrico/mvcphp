@@ -6,10 +6,6 @@
 <?php
 require '../vendor/autoload.php';
 
-
-
-
-
 require_once("../Routes/web.php");
 
 ?>

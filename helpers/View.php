@@ -8,6 +8,9 @@ namespace Helpers;
                 extract($data);
                 require_once($folder);
         }
+        public static function redirectTo($path){
+            header('Location: '.trim($_SERVER['REQUEST_URI'],"/")."/".$path);
+        }
     
     }
 
